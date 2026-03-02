@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Vedika ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+
+        :root {
+            --primary: #ff3366;
+            --secondary: #ff758c;
+            --accent: #ff7eb3;
+            --bg-grad-1: #0f0c29;
+            --bg-grad-2: #302b63;
+            --bg-grad-3: #24243e;
+            --text: #ffffff;
+            --text-dark: #333333;
+            --font-main: 'Poppins', sans-serif;
+            --font-accent: 'Great Vibes', cursive;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            cursor: none; /* Custom cursor */
+        }
+        body {
+            font-family: var(--font-main);
+            color: var(--text);
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        /* Intro Screen */
+        #intro-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: #000; z-index: 10000;
+            display: flex; justify-content: center; align-items: center; flex-direction: column;
+            transition: opacity 1.5s ease-out, visibility 1.5s ease-out;
+            color: #fff;
+        }
+        .enter-btn {
+            background: transparent; color: var(--primary);
+            border: 2px solid var(--primary); padding: 15px 40px;
+            font-size: 1.5rem; border-radius: 30px; cursor: none;
+            transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 2px;
+            font-family: var(--font-main);
+            position: relative; overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+        }
+        .enter-btn:hover {
+            background: var(--primary); color: #fff;
+            box-shadow: 0 0 40px rgba(255, 51, 102, 0.8);
+            transform: scale(1.05);
+        }
+
+        /* Custom Cursor */
+        .cursor-dot, .cursor-outline {
+            position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
+            border-radius: 50%; z-index: 99999; pointer-events: none;
+        }
+        .cursor-dot { width: 8px; height: 8px; background: var(--primary); }
+        .cursor-outline { width: 40px; height: 40px; border: 2px solid var(--accent);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        .hovering .cursor-outline { width: 60px; height: 60px; background-color: rgba(255, 126, 179, 0.1); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-grad-1); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
+
+        /* Loader */
+        #loader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-grad-1); z-index: 9999;
+            display: flex; justify-content: center; align-items: center; flex-direction: column;
+            transition: opacity 1s ease;
+        }
+        .heart-loader {
+            width: 50px; height: 50px; background: var(--primary);
+            position: relative; transform: rotate(45deg);
+            animation: beat 1s infinite alternate;
+        }
+        .heart-loader::before, .heart-loader::after {
+            content: ''; position: absolute; width: 50px; height: 50px;
+            background: var(--primary); border-radius: 50%;
+        }
+        .heart-loader::before { top: -25px; left: 0; }
+        .heart-loader::after { top: 0; left: -25px; }
+        
+        /* Particle Canvas */
+        #particleCanvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; opacity: 0.6;
+        }
+
+        /* Glassmorphism Classes with 3D context */
+        .glass-container { perspective: 1000px; z-index: 10; position: relative; width: 100%; display: flex; justify-content: center; }
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 3rem;
+            margin: 2rem auto;
+            max-width: 90%;
+            transition: transform 0.1s;
+            transform-style: preserve-3d;
+        }
+        .glass::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 20px; padding: 2px;
+            background: linear-gradient(45deg, var(--primary), transparent, var(--accent));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude;
+            pointer-events: none;
+        }
+        .glass-content { transform: translateZ(30px); }
+
+        /* Typography */
+        h1, h2, h3, .accent { font-family: var(--font-accent); color: var(--primary); text-align: center; text-shadow: 0 0 10px rgba(255,51,102,0.3); }
+        h1 { font-size: 5rem; margin-bottom: 1rem; line-height: 1.2; }
+        h2 { font-size: 4rem; margin-bottom: 1.5rem; }
+        p { font-size: 1.2rem; line-height: 1.8; margin-bottom: 1rem; text-align: center; font-weight: 300; }
+
+        /* Sections */
+        section { min-height: 100vh; padding: 6rem 1rem; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; z-index: 10; }
+        
+        /* Countdown */
+        .countdown-container { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem; }
+        .countdown-box { 
+            background: rgba(255, 51, 102, 0.2); border: 1px solid var(--primary);
+            color: white; padding: 2rem; border-radius: 20px; min-width: 120px; 
+            text-align: center; box-shadow: 0 8px 32px rgba(255, 77, 77, 0.4); 
+            backdrop-filter: blur(10px);
+            animation: float 4s ease-in-out infinite; 
+        }
+        .countdown-box span { font-size: 3rem; font-weight: bold; display: block; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+        .countdown-box p { font-size: 1rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Timeline */
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; padding: 2rem 0; width: 100%; }
+        .timeline::before { content: ''; position: absolute; left: 50%; width: 4px; height: 100%; background: linear-gradient(to bottom, var(--primary), var(--accent), transparent); border-radius: 2px; transform: translateX(-50%); }
+        .timeline-item { position: relative; width: 50%; padding: 1rem 3rem; opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .timeline-item.visible { opacity: 1; transform: translateY(0); }
+        .timeline-item:nth-child(odd) { left: 0; text-align: right; }
+        .timeline-item:nth-child(even) { left: 50%; }
+        .timeline-item::after { content: ''; position: absolute; width: 24px; height: 24px; background: var(--bg-grad-1); border: 4px solid var(--primary); border-radius: 50%; top: 30px; right: -14px; box-shadow: 0 0 15px var(--primary); transition: all 0.3s; }
+        .timeline-item:nth-child(even)::after { left: -14px; }
+        .timeline-item:hover::after { background: var(--primary); transform: scale(1.2); }
+        .timeline-content { background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.3s; }
+        .timeline-content:hover { transform: scale(1.05); border-color: var(--primary); }
+
+        /* Apology Section */
+        #apology { text-align: center; }
+        .apology-text { font-size: 1.4rem; font-style: italic; color: #ffccd5; max-width: 800px; margin: 0 auto 2rem; }
+        .apology-highlight { color: var(--primary); font-weight: 600; font-size: 1.6rem; display: block; margin: 1.5rem 0; }
+
+        /* Memory Game */
+        .memory-game { width: 100%; max-width: 700px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; perspective: 1000px; }
+        .memory-card { aspect-ratio: 1; position: relative; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1); cursor: none; }
+        .memory-card.flip { transform: rotateY(180deg); }
+        .front-face, .back-face { width: 100%; height: 100%; position: absolute; border-radius: 15px; backface-visibility: hidden; display: flex; justify-content: center; align-items: center; font-size: 3rem; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
+        .front-face { background: rgba(255,255,255,0.9); transform: rotateY(180deg); }
+        .back-face { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; border: 1px solid var(--primary); }
+        .back-face:hover { box-shadow: 0 0 20px var(--primary); }
+
+        /* Quiz */
+        .quiz-container { max-width: 700px; margin: 0 auto; background: rgba(0,0,0,0.4); padding: 3rem; border-radius: 25px; box-shadow: var(--shadow); border: 1px solid rgba(255,255,255,0.1); }
+        .quiz-option { display: block; width: 100%; padding: 1.5rem; margin-bottom: 1rem; border: 2px solid rgba(255,255,255,0.2); border-radius: 15px; background: transparent; color: var(--text); font-size: 1.2rem; cursor: none; transition: all 0.3s; font-family: var(--font-main); text-align: left; }
+        .quiz-option:hover { background: rgba(255,51,102,0.2); border-color: var(--primary); transform: translateX(10px); }
+        .quiz-result { display: none; font-size: 2rem; font-weight: bold; color: var(--primary); text-align: center; margin-top: 1rem; }
+
+        /* Marquee */
+        .marquee-container { width: 100%; overflow: hidden; background: linear-gradient(90deg, transparent, rgba(255,51,102,0.2), transparent); color: var(--accent); padding: 2rem 0; position: relative; border-top: 1px solid rgba(255,51,102,0.3); border-bottom: 1px solid rgba(255,51,102,0.3); margin: 4rem 0; }
+        .marquee-content { display: flex; white-space: nowrap; animation: marquee 25s linear infinite; font-size: 1.5rem; font-style: italic; font-family: var(--font-accent); text-shadow: 0 0 10px rgba(255,126,179,0.5); }
+        .marquee-content span { padding: 0 3rem; }
+
+        /* Keyframes */
+        @keyframes beat { 0% { transform: scale(1) rotate(45deg); } 100% { transform: scale(1.3) rotate(45deg); box-shadow: 0 0 30px var(--primary); } }
+        @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0); } }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.8rem; }
+            .countdown-box { min-width: 100px; padding: 1.5rem; }
+            .countdown-box span { font-size: 2.2rem; }
+            .timeline::before { left: 30px; }
+            .timeline-item { width: 100%; padding-left: 70px; left: 0 !important; text-align: left !important; }
+            .timeline-item::after { left: 16px !important; }
+            .memory-game { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+            .front-face, .back-face { font-size: 2rem; }
+            .glass { padding: 2rem 1.5rem; }
+            .cursor-dot, .cursor-outline { display: none; } /* Disable custom cursor on mobile */
+            * { cursor: auto !important; } 
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            .countdown-box { width: 45%; }
+            p { font-size: 1.1rem; }
+        }
+        .m-1 { margin: 1px !important; }
+.mt-1 { margin-top: 1px !important; }
+.mb-1 { margin-bottom: 1px !important; }
+.p-1 { padding: 1px !important; }
+.m-2 { margin: 2px !important; }
+.mt-2 { margin-top: 2px !important; }
+.mb-2 { margin-bottom: 2px !important; }
+.p-2 { padding: 2px !important; }
+.m-3 { margin: 3px !important; }
+.mt-3 { margin-top: 3px !important; }
+.mb-3 { margin-bottom: 3px !important; }
+.p-3 { padding: 3px !important; }
+.m-4 { margin: 4px !important; }
+.mt-4 { margin-top: 4px !important; }
+.mb-4 { margin-bottom: 4px !important; }
+.p-4 { padding: 4px !important; }
+.m-5 { margin: 5px !important; }
+.mt-5 { margin-top: 5px !important; }
+.mb-5 { margin-bottom: 5px !important; }
+.p-5 { padding: 5px !important; }
+.m-6 { margin: 6px !important; }
+.mt-6 { margin-top: 6px !important; }
+.mb-6 { margin-bottom: 6px !important; }
+.p-6 { padding: 6px !important; }
+.m-7 { margin: 7px !important; }
+.mt-7 { margin-top: 7px !important; }
+.mb-7 { margin-bottom: 7px !important; }
+.p-7 { padding: 7px !important; }
+.m-8 { margin: 8px !important; }
+.mt-8 { margin-top: 8px !important; }
+.mb-8 { margin-bottom: 8px !important; }
+.p-8 { padding: 8px !important; }
+.m-9 { margin: 9px !important; }
+.mt-9 { margin-top: 9px !important; }
+.mb-9 { margin-bottom: 9px !important; }
+.p-9 { padding: 9px !important; }
+.m-10 { margin: 10px !important; }
+.mt-10 { margin-top: 10px !important; }
+.mb-10 { margin-bottom: 10px !important; }
+.p-10 { padding: 10px !important; }
+.m-11 { margin: 11px !important; }
+.mt-11 { margin-top: 11px !important; }
+.mb-11 { margin-bottom: 11px !important; }
+.p-11 { padding: 11px !important; }
+.m-12 { margin: 12px !important; }
+.mt-12 { margin-top: 12px !important; }
+.mb-12 { margin-bottom: 12px !important; }
+.p-12 { padding: 12px !important; }
+.m-13 { margin: 13px !important; }
+.mt-13 { margin-top: 13px !important; }
+.mb-13 { margin-bottom: 13px !important; }
+.p-13 { padding: 13px !important; }
+.m-14 { margin: 14px !important; }
+.mt-14 { margin-top: 14px !important; }
+.mb-14 { margin-bottom: 14px !important; }
+.p-14 { padding: 14px !important; }
+.m-15 { margin: 15px !important; }
+.mt-15 { margin-top: 15px !important; }
+.mb-15 { margin-bottom: 15px !important; }
+.p-15 { padding: 15px !important; }
+.m-16 { margin: 16px !important; }
+.mt-16 { margin-top: 16px !important; }
+.mb-16 { margin-bottom: 16px !important; }
+.p-16 { padding: 16px !important; }
+.m-17 { margin: 17px !important; }
+.mt-17 { margin-top: 17px !important; }
+.mb-17 { margin-bottom: 17px !important; }
+.p-17 { padding: 17px !important; }
+.m-18 { margin: 18px !important; }
+.mt-18 { margin-top: 18px !important; }
+.mb-18 { margin-bottom: 18px !important; }
+.p-18 { padding: 18px !important; }
+.m-19 { margin: 19px !important; }
+.mt-19 { margin-top: 19px !important; }
+.mb-19 { margin-bottom: 19px !important; }
+.p-19 { padding: 19px !important; }
+.m-20 { margin: 20px !important; }
+.mt-20 { margin-top: 20px !important; }
+.mb-20 { margin-bottom: 20px !important; }
+.p-20 { padding: 20px !important; }
+.m-21 { margin: 21px !important; }
+.mt-21 { margin-top: 21px !important; }
+.mb-21 { margin-bottom: 21px !important; }
+.p-21 { padding: 21px !important; }
+.m-22 { margin: 22px !important; }
+.mt-22 { margin-top: 22px !important; }
+.mb-22 { margin-bottom: 22px !important; }
+.p-22 { padding: 22px !important; }
+.m-23 { margin: 23px !important; }
+.mt-23 { margin-top: 23px !important; }
+.mb-23 { margin-bottom: 23px !important; }
+.p-23 { padding: 23px !important; }
+.m-24 { margin: 24px !important; }
+.mt-24 { margin-top: 24px !important; }
+.mb-24 { margin-bottom: 24px !important; }
+.p-24 { padding: 24px !important; }
+.m-25 { margin: 25px !important; }
+.mt-25 { margin-top: 25px !important; }
+.mb-25 { margin-bottom: 25px !important; }
+.p-25 { padding: 25px !important; }
+.m-26 { margin: 26px !important; }
+.mt-26 { margin-top: 26px !important; }
+.mb-26 { margin-bottom: 26px !important; }
+.p-26 { padding: 26px !important; }
+.m-27 { margin: 27px !important; }
+.mt-27 { margin-top: 27px !important; }
+.mb-27 { margin-bottom: 27px !important; }
+.p-27 { padding: 27px !important; }
+.m-28 { margin: 28px !important; }
+.mt-28 { margin-top: 28px !important; }
+.mb-28 { margin-bottom: 28px !important; }
+.p-28 { padding: 28px !important; }
+.m-29 { margin: 29px !important; }
+.mt-29 { margin-top: 29px !important; }
+.mb-29 { margin-bottom: 29px !important; }
+.p-29 { padding: 29px !important; }
+.m-30 { margin: 30px !important; }
+.mt-30 { margin-top: 30px !important; }
+.mb-30 { margin-bottom: 30px !important; }
+.p-30 { padding: 30px !important; }
+.m-31 { margin: 31px !important; }
+.mt-31 { margin-top: 31px !important; }
+.mb-31 { margin-bottom: 31px !important; }
+.p-31 { padding: 31px !important; }
+.m-32 { margin: 32px !important; }
+.mt-32 { margin-top: 32px !important; }
+.mb-32 { margin-bottom: 32px !important; }
+.p-32 { padding: 32px !important; }
+.m-33 { margin: 33px !important; }
+.mt-33 { margin-top: 33px !important; }
+.mb-33 { margin-bottom: 33px !important; }
+.p-33 { padding: 33px !important; }
+.m-34 { margin: 34px !important; }
+.mt-34 { margin-top: 34px !important; }
+.mb-34 { margin-bottom: 34px !important; }
+.p-34 { padding: 34px !important; }
+.m-35 { margin: 35px !important; }
+.mt-35 { margin-top: 35px !important; }
+.mb-35 { margin-bottom: 35px !important; }
+.p-35 { padding: 35px !important; }
+.m-36 { margin: 36px !important; }
+.mt-36 { margin-top: 36px !important; }
+.mb-36 { margin-bottom: 36px !important; }
+.p-36 { padding: 36px !important; }
+.m-37 { margin: 37px !important; }
+.mt-37 { margin-top: 37px !important; }
+.mb-37 { margin-bottom: 37px !important; }
+.p-37 { padding: 37px !important; }
+.m-38 { margin: 38px !important; }
+.mt-38 { margin-top: 38px !important; }
+.mb-38 { margin-bottom: 38px !important; }
+.p-38 { padding: 38px !important; }
+.m-39 { margin: 39px !important; }
+.mt-39 { margin-top: 39px !important; }
+.mb-39 { margin-bottom: 39px !important; }
+.p-39 { padding: 39px !important; }
+.m-40 { margin: 40px !important; }
+.mt-40 { margin-top: 40px !important; }
+.mb-40 { margin-bottom: 40px !important; }
+.p-40 { padding: 40px !important; }
+.m-41 { margin: 41px !important; }
+.mt-41 { margin-top: 41px !important; }
+.mb-41 { margin-bottom: 41px !important; }
+.p-41 { padding: 41px !important; }
+.m-42 { margin: 42px !important; }
+.mt-42 { margin-top: 42px !important; }
+.mb-42 { margin-bottom: 42px !important; }
+.p-42 { padding: 42px !important; }
+.m-43 { margin: 43px !important; }
+.mt-43 { margin-top: 43px !important; }
+.mb-43 { margin-bottom: 43px !important; }
+.p-43 { padding: 43px !important; }
+.m-44 { margin: 44px !important; }
+.mt-44 { margin-top: 44px !important; }
+.mb-44 { margin-bottom: 44px !important; }
+.p-44 { padding: 44px !important; }
+.m-45 { margin: 45px !important; }
+.mt-45 { margin-top: 45px !important; }
+.mb-45 { margin-bottom: 45px !important; }
+.p-45 { padding: 45px !important; }
+.m-46 { margin: 46px !important; }
+.mt-46 { margin-top: 46px !important; }
+.mb-46 { margin-bottom: 46px !important; }
+.p-46 { padding: 46px !important; }
+.m-47 { margin: 47px !important; }
+.mt-47 { margin-top: 47px !important; }
+.mb-47 { margin-bottom: 47px !important; }
+.p-47 { padding: 47px !important; }
+.m-48 { margin: 48px !important; }
+.mt-48 { margin-top: 48px !important; }
+.mb-48 { margin-bottom: 48px !important; }
+.p-48 { padding: 48px !important; }
+.m-49 { margin: 49px !important; }
+.mt-49 { margin-top: 49px !important; }
+.mb-49 { margin-bottom: 49px !important; }
+.p-49 { padding: 49px !important; }
+.m-50 { margin: 50px !important; }
+.mt-50 { margin-top: 50px !important; }
+.mb-50 { margin-bottom: 50px !important; }
+.p-50 { padding: 50px !important; }
+.m-51 { margin: 51px !important; }
+.mt-51 { margin-top: 51px !important; }
+.mb-51 { margin-bottom: 51px !important; }
+.p-51 { padding: 51px !important; }
+.m-52 { margin: 52px !important; }
+.mt-52 { margin-top: 52px !important; }
+.mb-52 { margin-bottom: 52px !important; }
+.p-52 { padding: 52px !important; }
+.m-53 { margin: 53px !important; }
+.mt-53 { margin-top: 53px !important; }
+.mb-53 { margin-bottom: 53px !important; }
+.p-53 { padding: 53px !important; }
+.m-54 { margin: 54px !important; }
+.mt-54 { margin-top: 54px !important; }
+.mb-54 { margin-bottom: 54px !important; }
+.p-54 { padding: 54px !important; }
+.m-55 { margin: 55px !important; }
+.mt-55 { margin-top: 55px !important; }
+.mb-55 { margin-bottom: 55px !important; }
+.p-55 { padding: 55px !important; }
+.m-56 { margin: 56px !important; }
+.mt-56 { margin-top: 56px !important; }
+.mb-56 { margin-bottom: 56px !important; }
+.p-56 { padding: 56px !important; }
+.m-57 { margin: 57px !important; }
+.mt-57 { margin-top: 57px !important; }
+.mb-57 { margin-bottom: 57px !important; }
+.p-57 { padding: 57px !important; }
+.m-58 { margin: 58px !important; }
+.mt-58 { margin-top: 58px !important; }
+.mb-58 { margin-bottom: 58px !important; }
+.p-58 { padding: 58px !important; }
+.m-59 { margin: 59px !important; }
+.mt-59 { margin-top: 59px !important; }
+.mb-59 { margin-bottom: 59px !important; }
+.p-59 { padding: 59px !important; }
+.m-60 { margin: 60px !important; }
+.mt-60 { margin-top: 60px !important; }
+.mb-60 { margin-bottom: 60px !important; }
+.p-60 { padding: 60px !important; }
+.m-61 { margin: 61px !important; }
+.mt-61 { margin-top: 61px !important; }
+.mb-61 { margin-bottom: 61px !important; }
+.p-61 { padding: 61px !important; }
+.m-62 { margin: 62px !important; }
+.mt-62 { margin-top: 62px !important; }
+.mb-62 { margin-bottom: 62px !important; }
+.p-62 { padding: 62px !important; }
+.m-63 { margin: 63px !important; }
+.mt-63 { margin-top: 63px !important; }
+.mb-63 { margin-bottom: 63px !important; }
+.p-63 { padding: 63px !important; }
+.m-64 { margin: 64px !important; }
+.mt-64 { margin-top: 64px !important; }
+.mb-64 { margin-bottom: 64px !important; }
+.p-64 { padding: 64px !important; }
+.m-65 { margin: 65px !important; }
+.mt-65 { margin-top: 65px !important; }
+.mb-65 { margin-bottom: 65px !important; }
+.p-65 { padding: 65px !important; }
+.m-66 { margin: 66px !important; }
+.mt-66 { margin-top: 66px !important; }
+.mb-66 { margin-bottom: 66px !important; }
+.p-66 { padding: 66px !important; }
+.m-67 { margin: 67px !important; }
+.mt-67 { margin-top: 67px !important; }
+.mb-67 { margin-bottom: 67px !important; }
+.p-67 { padding: 67px !important; }
+.m-68 { margin: 68px !important; }
+.mt-68 { margin-top: 68px !important; }
+.mb-68 { margin-bottom: 68px !important; }
+.p-68 { padding: 68px !important; }
+.m-69 { margin: 69px !important; }
+.mt-69 { margin-top: 69px !important; }
+.mb-69 { margin-bottom: 69px !important; }
+.p-69 { padding: 69px !important; }
+.m-70 { margin: 70px !important; }
+.mt-70 { margin-top: 70px !important; }
+.mb-70 { margin-bottom: 70px !important; }
+.p-70 { padding: 70px !important; }
+.m-71 { margin: 71px !important; }
+.mt-71 { margin-top: 71px !important; }
+.mb-71 { margin-bottom: 71px !important; }
+.p-71 { padding: 71px !important; }
+.m-72 { margin: 72px !important; }
+.mt-72 { margin-top: 72px !important; }
+.mb-72 { margin-bottom: 72px !important; }
+.p-72 { padding: 72px !important; }
+.m-73 { margin: 73px !important; }
+.mt-73 { margin-top: 73px !important; }
+.mb-73 { margin-bottom: 73px !important; }
+.p-73 { padding: 73px !important; }
+.m-74 { margin: 74px !important; }
+.mt-74 { margin-top: 74px !important; }
+.mb-74 { margin-bottom: 74px !important; }
+.p-74 { padding: 74px !important; }
+.m-75 { margin: 75px !important; }
+.mt-75 { margin-top: 75px !important; }
+.mb-75 { margin-bottom: 75px !important; }
+.p-75 { padding: 75px !important; }
+.m-76 { margin: 76px !important; }
+.mt-76 { margin-top: 76px !important; }
+.mb-76 { margin-bottom: 76px !important; }
+.p-76 { padding: 76px !important; }
+.m-77 { margin: 77px !important; }
+.mt-77 { margin-top: 77px !important; }
+.mb-77 { margin-bottom: 77px !important; }
+.p-77 { padding: 77px !important; }
+.m-78 { margin: 78px !important; }
+.mt-78 { margin-top: 78px !important; }
+.mb-78 { margin-bottom: 78px !important; }
+.p-78 { padding: 78px !important; }
+.m-79 { margin: 79px !important; }
+.mt-79 { margin-top: 79px !important; }
+.mb-79 { margin-bottom: 79px !important; }
+.p-79 { padding: 79px !important; }
+.m-80 { margin: 80px !important; }
+.mt-80 { margin-top: 80px !important; }
+.mb-80 { margin-bottom: 80px !important; }
+.p-80 { padding: 80px !important; }
+.m-81 { margin: 81px !important; }
+.mt-81 { margin-top: 81px !important; }
+.mb-81 { margin-bottom: 81px !important; }
+.p-81 { padding: 81px !important; }
+.m-82 { margin: 82px !important; }
+.mt-82 { margin-top: 82px !important; }
+.mb-82 { margin-bottom: 82px !important; }
+.p-82 { padding: 82px !important; }
+.m-83 { margin: 83px !important; }
+.mt-83 { margin-top: 83px !important; }
+.mb-83 { margin-bottom: 83px !important; }
+.p-83 { padding: 83px !important; }
+.m-84 { margin: 84px !important; }
+.mt-84 { margin-top: 84px !important; }
+.mb-84 { margin-bottom: 84px !important; }
+.p-84 { padding: 84px !important; }
+.m-85 { margin: 85px !important; }
+.mt-85 { margin-top: 85px !important; }
+.mb-85 { margin-bottom: 85px !important; }
+.p-85 { padding: 85px !important; }
+.m-86 { margin: 86px !important; }
+.mt-86 { margin-top: 86px !important; }
+.mb-86 { margin-bottom: 86px !important; }
+.p-86 { padding: 86px !important; }
+.m-87 { margin: 87px !important; }
+.mt-87 { margin-top: 87px !important; }
+.mb-87 { margin-bottom: 87px !important; }
+.p-87 { padding: 87px !important; }
+.m-88 { margin: 88px !important; }
+.mt-88 { margin-top: 88px !important; }
+.mb-88 { margin-bottom: 88px !important; }
+.p-88 { padding: 88px !important; }
+.m-89 { margin: 89px !important; }
+.mt-89 { margin-top: 89px !important; }
+.mb-89 { margin-bottom: 89px !important; }
+.p-89 { padding: 89px !important; }
+.m-90 { margin: 90px !important; }
+.mt-90 { margin-top: 90px !important; }
+.mb-90 { margin-bottom: 90px !important; }
+.p-90 { padding: 90px !important; }
+.m-91 { margin: 91px !important; }
+.mt-91 { margin-top: 91px !important; }
+.mb-91 { margin-bottom: 91px !important; }
+.p-91 { padding: 91px !important; }
+.m-92 { margin: 92px !important; }
+.mt-92 { margin-top: 92px !important; }
+.mb-92 { margin-bottom: 92px !important; }
+.p-92 { padding: 92px !important; }
+.m-93 { margin: 93px !important; }
+.mt-93 { margin-top: 93px !important; }
+.mb-93 { margin-bottom: 93px !important; }
+.p-93 { padding: 93px !important; }
+.m-94 { margin: 94px !important; }
+.mt-94 { margin-top: 94px !important; }
+.mb-94 { margin-bottom: 94px !important; }
+.p-94 { padding: 94px !important; }
+.m-95 { margin: 95px !important; }
+.mt-95 { margin-top: 95px !important; }
+.mb-95 { margin-bottom: 95px !important; }
+.p-95 { padding: 95px !important; }
+.m-96 { margin: 96px !important; }
+.mt-96 { margin-top: 96px !important; }
+.mb-96 { margin-bottom: 96px !important; }
+.p-96 { padding: 96px !important; }
+.m-97 { margin: 97px !important; }
+.mt-97 { margin-top: 97px !important; }
+.mb-97 { margin-bottom: 97px !important; }
+.p-97 { padding: 97px !important; }
+.m-98 { margin: 98px !important; }
+.mt-98 { margin-top: 98px !important; }
+.mb-98 { margin-bottom: 98px !important; }
+.p-98 { padding: 98px !important; }
+.m-99 { margin: 99px !important; }
+.mt-99 { margin-top: 99px !important; }
+.mb-99 { margin-bottom: 99px !important; }
+.p-99 { padding: 99px !important; }
+.m-100 { margin: 100px !important; }
+.mt-100 { margin-top: 100px !important; }
+.mb-100 { margin-bottom: 100px !important; }
+.p-100 { padding: 100px !important; }
+
+    </style>
+</head>
+<body>
+
+        <!-- Custom Cursor -->
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+
+        <!-- Audio Setup -->
+        <audio id="bg-music" loop>
+            <source src="music/Stephen Sanchez, Em Beihold - Until I Found You (Lyrics)-yt.savetube.me.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Intro Screen for Interaction (Autoplay Policy) -->
+        <div id="intro-screen">
+            <h1 style="margin-bottom: 2rem; animation: float 3s infinite ease-in-out;">For Vedika ❤️</h1>
+            <p style="max-width: 600px; color: #ccc;">Please turn up your volume for the best experience.</p>
+            <button class="enter-btn interactive" id="enter-btn">Click to Enter</button>
+        </div>
+
+        <div id="loader">
+            <div class="heart-loader"></div>
+            <h2 style="margin-top:2rem">Loading a universe of love...</h2>
+        </div>
+        
+        <canvas id="particleCanvas"></canvas>
+
+        <section id="hero">
+            <div class="glass-container">
+                <div class="glass tilt-card" style="max-width: 900px;">
+                    <div class="glass-content">
+                        <h1>Happy Birthday, My Beautiful Vedika! ❤️</h1>
+                        <p>Welcome to your personal little universe. A space created exclusively to celebrate the most incredible person in the world on March 5th.</p>
+                        <div class="countdown-container">
+                            <div class="countdown-box"><span id="days">00</span><p>Days</p></div>
+                            <div class="countdown-box"><span id="hours">00</span><p>Hours</p></div>
+                            <div class="countdown-box"><span id="mins">00</span><p>Minutes</p></div>
+                            <div class="countdown-box"><span id="secs">00</span><p>Seconds</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="marquee-container">
+            <div class="marquee-content" id="reasons-marquee">
+                <span>1. Your infectious laugh</span><span>2. The way you look at me</span><span>3. Your immense kindness</span><span>4. Your brilliant mind</span><span>5. Your warm hugs</span><span>6. The way you care</span><span>7. Your pure heart</span><span>8. Everything about you</span><span>9. Your beautiful smile</span><span>10. Your infectious laugh</span><span>11. The way you look at me</span><span>12. Your immense kindness</span><span>13. Your brilliant mind</span><span>14. Your warm hugs</span><span>15. The way you care</span><span>16. Your pure heart</span><span>17. Everything about you</span><span>18. Your beautiful smile</span><span>19. Your infectious laugh</span><span>20. The way you look at me</span><span>21. Your immense kindness</span><span>22. Your brilliant mind</span><span>23. Your warm hugs</span><span>24. The way you care</span><span>25. Your pure heart</span><span>26. Everything about you</span><span>27. Your beautiful smile</span><span>28. Your infectious laugh</span><span>29. The way you look at me</span><span>30. Your immense kindness</span><span>31. Your brilliant mind</span><span>32. Your warm hugs</span><span>33. The way you care</span><span>34. Your pure heart</span><span>35. Everything about you</span><span>36. Your beautiful smile</span><span>37. Your infectious laugh</span><span>38. The way you look at me</span><span>39. Your immense kindness</span><span>40. Your brilliant mind</span><span>41. Your warm hugs</span><span>42. The way you care</span><span>43. Your pure heart</span><span>44. Everything about you</span><span>45. Your beautiful smile</span><span>46. Your infectious laugh</span><span>47. The way you look at me</span><span>48. Your immense kindness</span><span>49. Your brilliant mind</span><span>50. Your warm hugs</span><span>51. The way you care</span><span>52. Your pure heart</span><span>53. Everything about you</span><span>54. Your beautiful smile</span><span>55. Your infectious laugh</span><span>56. The way you look at me</span><span>57. Your immense kindness</span><span>58. Your brilliant mind</span><span>59. Your warm hugs</span><span>60. The way you care</span><span>61. Your pure heart</span><span>62. Everything about you</span><span>63. Your beautiful smile</span><span>64. Your infectious laugh</span><span>65. The way you look at me</span><span>66. Your immense kindness</span><span>67. Your brilliant mind</span><span>68. Your warm hugs</span><span>69. The way you care</span><span>70. Your pure heart</span><span>71. Everything about you</span><span>72. Your beautiful smile</span><span>73. Your infectious laugh</span><span>74. The way you look at me</span><span>75. Your immense kindness</span><span>76. Your brilliant mind</span><span>77. Your warm hugs</span><span>78. The way you care</span><span>79. Your pure heart</span><span>80. Everything about you</span><span>81. Your beautiful smile</span><span>82. Your infectious laugh</span><span>83. The way you look at me</span><span>84. Your immense kindness</span><span>85. Your brilliant mind</span><span>86. Your warm hugs</span><span>87. The way you care</span><span>88. Your pure heart</span><span>89. Everything about you</span><span>90. Your beautiful smile</span><span>91. Your infectious laugh</span><span>92. The way you look at me</span><span>93. Your immense kindness</span><span>94. Your brilliant mind</span><span>95. Your warm hugs</span><span>96. The way you care</span><span>97. Your pure heart</span><span>98. Everything about you</span><span>99. Your beautiful smile</span><span>100. Your infectious laugh</span><span>1. Your infectious laugh</span><span>2. The way you look at me</span><span>3. Your immense kindness</span><span>4. Your brilliant mind</span><span>5. Your warm hugs</span><span>6. The way you care</span><span>7. Your pure heart</span><span>8. Everything about you</span><span>9. Your beautiful smile</span><span>10. Your infectious laugh</span><span>11. The way you look at me</span><span>12. Your immense kindness</span><span>13. Your brilliant mind</span><span>14. Your warm hugs</span><span>15. The way you care</span><span>16. Your pure heart</span><span>17. Everything about you</span><span>18. Your beautiful smile</span><span>19. Your infectious laugh</span><span>20. The way you look at me</span><span>21. Your immense kindness</span><span>22. Your brilliant mind</span><span>23. Your warm hugs</span><span>24. The way you care</span><span>25. Your pure heart</span><span>26. Everything about you</span><span>27. Your beautiful smile</span><span>28. Your infectious laugh</span><span>29. The way you look at me</span><span>30. Your immense kindness</span><span>31. Your brilliant mind</span><span>32. Your warm hugs</span><span>33. The way you care</span><span>34. Your pure heart</span><span>35. Everything about you</span><span>36. Your beautiful smile</span><span>37. Your infectious laugh</span><span>38. The way you look at me</span><span>39. Your immense kindness</span><span>40. Your brilliant mind</span><span>41. Your warm hugs</span><span>42. The way you care</span><span>43. Your pure heart</span><span>44. Everything about you</span><span>45. Your beautiful smile</span><span>46. Your infectious laugh</span><span>47. The way you look at me</span><span>48. Your immense kindness</span><span>49. Your brilliant mind</span><span>50. Your warm hugs</span><span>51. The way you care</span><span>52. Your pure heart</span><span>53. Everything about you</span><span>54. Your beautiful smile</span><span>55. Your infectious laugh</span><span>56. The way you look at me</span><span>57. Your immense kindness</span><span>58. Your brilliant mind</span><span>59. Your warm hugs</span><span>60. The way you care</span><span>61. Your pure heart</span><span>62. Everything about you</span><span>63. Your beautiful smile</span><span>64. Your infectious laugh</span><span>65. The way you look at me</span><span>66. Your immense kindness</span><span>67. Your brilliant mind</span><span>68. Your warm hugs</span><span>69. The way you care</span><span>70. Your pure heart</span><span>71. Everything about you</span><span>72. Your beautiful smile</span><span>73. Your infectious laugh</span><span>74. The way you look at me</span><span>75. Your immense kindness</span><span>76. Your brilliant mind</span><span>77. Your warm hugs</span><span>78. The way you care</span><span>79. Your pure heart</span><span>80. Everything about you</span><span>81. Your beautiful smile</span><span>82. Your infectious laugh</span><span>83. The way you look at me</span><span>84. Your immense kindness</span><span>85. Your brilliant mind</span><span>86. Your warm hugs</span><span>87. The way you care</span><span>88. Your pure heart</span><span>89. Everything about you</span><span>90. Your beautiful smile</span><span>91. Your infectious laugh</span><span>92. The way you look at me</span><span>93. Your immense kindness</span><span>94. Your brilliant mind</span><span>95. Your warm hugs</span><span>96. The way you care</span><span>97. Your pure heart</span><span>98. Everything about you</span><span>99. Your beautiful smile</span><span>100. Your infectious laugh</span>
+            </div>
+        </div>
+
+        <section id="timeline">
+            <h2>Our Beautiful Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item"><div class="timeline-content interactive"><h3>The Beginning</h3><p>When our paths first crossed. The start of something profoundly magical and serendipitous.</p></div></div>
+                <div class="timeline-item"><div class="timeline-content interactive"><h3>First Date</h3><p>A day filled with nervous butterflies, endless laughter, and a connection I had never felt before.</p></div></div>
+                <div class="timeline-item"><div class="timeline-content interactive"><h3>First "I Love You"</h3><p>The moment of truth. My heart still skips a beat remembering the way everything else faded away.</p></div></div>
+                <div class="timeline-item"><div class="timeline-content interactive"><h3>Adventures</h3><p>Exploring the world side by side, building memories that I will cherish for a lifetime.</p></div></div>
+                <div class="timeline-item"><div class="timeline-content interactive"><h3>Today</h3><p>Celebrating you and the absolutely breathtaking, intelligent, and caring woman you are. March 5th!</p></div></div>
+                <div class="timeline-item"><div class="timeline-content interactive"><h3>Forever</h3><p>Looking forward to a universe of birthdays held in your arms.</p></div></div>
+            </div>
+        </section>
+
+        <!-- APOLOGY SECTION -->
+        <section id="apology">
+            <div class="glass-container">
+                <div class="glass tilt-card" style="max-width: 900px; border-color: rgba(255, 51, 102, 0.4);">
+                    <div class="glass-content">
+                        <h2 style="color: #fftext;">I Am So Sorry... 🥺</h2>
+                        <p class="apology-text">
+                            "Before we go any further, there is something heavy on my heart that I need to say."
+                        </p>
+                        <p style="text-align: left; margin-bottom: 1.5rem;">
+                            Vedika, I know that my behavior recently hurt you, and it breaks me knowing that I was the reason for your pain. The last thing I ever want to do in this world is make you feel anything less than cherished, safe, and unconditionally loved.
+                        </p>
+                        <p style="text-align: left; margin-bottom: 1.5rem;">
+                            I apologize from the very bottom of my heart. I was wrong, and I take full responsibility. You are the most precious person in my life, and I never want to jeopardize what we have. I promise to be better, to listen better, and to treat your heart with the utmost care it deserves.
+                        </p>
+                        <span class="apology-highlight">You mean the absolute world to me. Please forgive me. ❤️</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="games">
+            <h2>Little Games For You</h2>
+            
+            <div class="glass-container" style="margin-bottom: 4rem;">
+                <div class="glass tilt-card">
+                    <div class="glass-content">
+                        <h3>Memory Match ❤️</h3>
+                        <p>Find the matching pairs! Let's see how sharp those beautiful eyes are.</p>
+                        <div class="memory-game" style="margin-top: 2rem;">
+                            
+            <div class="memory-card interactive" data-emoji="❤️">
+                <div class="front-face">❤️</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="💍">
+                <div class="front-face">💍</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="🌹">
+                <div class="front-face">🌹</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="💌">
+                <div class="front-face">💌</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="🍫">
+                <div class="front-face">🍫</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="🧸">
+                <div class="front-face">🧸</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="🍷">
+                <div class="front-face">🍷</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="✨">
+                <div class="front-face">✨</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="❤️">
+                <div class="front-face">❤️</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="💍">
+                <div class="front-face">💍</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="🌹">
+                <div class="front-face">🌹</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="💌">
+                <div class="front-face">💌</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="🍫">
+                <div class="front-face">🍫</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="🧸">
+                <div class="front-face">🧸</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="🍷">
+                <div class="front-face">🍷</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+            <div class="memory-card interactive" data-emoji="✨">
+                <div class="front-face">✨</div>
+                <div class="back-face" style="font-family: var(--font-accent); font-size: 2.5rem;">V</div>
+            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-container">
+                <div class="glass tilt-card" style="max-width: 800px; width: 100%;">
+                    <div class="glass-content">
+                        <h3>The "Us" Quiz</h3>
+                        <div class="quiz-container" id="quiz">
+                            <!-- Quiz logic injected via JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="letter">
+            <div class="glass-container">
+                <div class="glass tilt-card" style="max-width: 900px; text-align: left;">
+                    <div class="glass-content">
+                        <h2 style="text-align: center;">My Dearest Vedika,</h2>
+                        <p>Happy Birthday! 🎉</p>
+                        <p>On this incredibly special day, March 5th, I want to remind you of how uniquely magnificent you are. Since the moment you walked into my life, every single day has been brighter, every laugh has been louder, and every silent moment has been peaceful.</p>
+                        <p>You have this unparalleled ability to light up any room you enter. Your resilience inspires me, your intelligence astounds me, and your heart is the most beautiful sanctuary I've ever known. I cherish every memory we've made, the good and the bad, because they brought us here.</p>
+                        <p>This little website, built from scratch, is just a small digital token of my immense love for you. I hope the song playing in the background, the falling hearts, and every word written here brings that gorgeous smile to your face.</p>
+                        <p>May your year ahead be filled with as much happiness, boundless love, and brilliant success as you bring to everyone lucky enough to know you. Keep shining, my love.</p>
+                        <br>
+                        <p style="text-align: right; font-family: var(--font-accent); font-size: 3rem; color: var(--primary); text-shadow: 0 0 10px rgba(255,51,102,0.5);">With all my love, Always. Yours. ❤️</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div style="text-align: center; padding: 3rem; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.1);">
+                <p>Made with endless ❤️, sweat, and late-night coding for Vedika's Birthday</p>
+            </div>
+        </footer>
+        
+    <script>
+
+        // --- 0. Intro Screen & Music ---
+        const introScreen = document.getElementById('intro-screen');
+        const enterBtn = document.getElementById('enter-btn');
+        const bgMusic = document.getElementById('bg-music');
+
+        bgMusic.volume = 0.5;
+
+        enterBtn.addEventListener('click', () => {
+            introScreen.style.opacity = '0';
+            setTimeout(() => {
+                introScreen.style.visibility = 'hidden';
+            }, 1000);
+            bgMusic.play().catch(e => console.log("Audio play failed:", e));
+        });
+
+        // --- 1. Custom Cursor ---
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        const interactibles = document.querySelectorAll('.interactive');
+
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+            
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        interactibles.forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+        });
+
+        // Hover effect for 3D tilt cards
+        const tiltCards = document.querySelectorAll('.tilt-card');
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -10; // Max rotation 10deg
+                const rotateY = ((x - centerX) / centerX) * 10;
+                
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+                card.style.transition = `transform 0.5s ease`;
+            });
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = `none`;
+            });
+        });
+
+        // --- 2. Loader Removal ---
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loader').style.display = 'none';
+                }, 1000);
+            }, 1000);
+        });
+
+        // --- 3. Countdown Logic to March 5th ---
+        function updateCountdown() {
+            const now = new Date();
+            let target = new Date(now.getFullYear(), 2, 5); // Month is 0-indexed: 2 = March
+
+            if (now.getTime() > target.getTime() && now.getDate() !== 5) {
+                target.setFullYear(now.getFullYear() + 1);
+            }
+
+            const diff = target - now;
+
+            if (diff <= 0 && now.getDate() === 5 && now.getMonth() === 2) {
+                document.getElementById('days').innerText = "IT'S";
+                document.getElementById('hours').innerText = "YOUR";
+                document.getElementById('mins').innerText = "HAPPY";
+                document.getElementById('secs').innerText = "BDAY!";
+                return;
+            }
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = d.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+            document.getElementById('mins').innerText = m.toString().padStart(2, '0');
+            document.getElementById('secs').innerText = s.toString().padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // --- 4. Scroll Animations (Timeline) ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // --- 5. Memory Game Logic ---
+        const cards = document.querySelectorAll('.memory-card');
+        let hasFlippedCard = false;
+        let lockBoard = false;
+        let firstCard, secondCard;
+        let matchedPairs = 0;
+
+        (function shuffle() {
+            cards.forEach(card => {
+                let randomPos = Math.floor(Math.random() * 16);
+                card.style.order = randomPos;
+            });
+        })();
+
+        function flipCard() {
+            if (lockBoard) return;
+            if (this === firstCard) return;
+
+            this.classList.add('flip');
+
+            if (!hasFlippedCard) {
+                hasFlippedCard = true;
+                firstCard = this;
+                return;
+            }
+
+            secondCard = this;
+            checkForMatch();
+        }
+
+        function checkForMatch() {
+            let isMatch = firstCard.dataset.emoji === secondCard.dataset.emoji;
+            isMatch ? disableCards() : unflipCards();
+        }
+
+        function disableCards() {
+            firstCard.removeEventListener('click', flipCard);
+            secondCard.removeEventListener('click', flipCard);
+            resetBoard();
+            matchedPairs++;
+            if (matchedPairs === 8) {
+                setTimeout(() => alert("Yay! You found all matches! Your brilliant mind never ceases to amaze me! ❤️"), 500);
+            }
+        }
+
+        function unflipCards() {
+            lockBoard = true;
+            setTimeout(() => {
+                firstCard.classList.remove('flip');
+                secondCard.classList.remove('flip');
+                resetBoard();
+            }, 1000);
+        }
+
+        function resetBoard() {
+            [hasFlippedCard, lockBoard] = [false, false];
+            [firstCard, secondCard] = [null, null];
+        }
+
+        cards.forEach(card => card.addEventListener('click', flipCard));
+
+        // --- 6. Quiz Logic ---
+        const quizData = [
+            { question: "What is my absolute favorite thing about you?", options: ["Your Smile", "Your Cooking", "Everything!", "Your Resilience"], answer: 2 },
+            { question: "Where do we shine the brightest?", options: ["When we are apart", "When we communicate", "Together, side by side", "In arguments"], answer: 2 },
+            { question: "What is my promise to you today?", options: ["To love you forever", "To be better always", "To never let you go", "All of the above ❤️"], answer: 3 }
+        ];
+
+        let currentQuiz = 0;
+        let score = 0;
+        const quizEl = document.getElementById('quiz');
+
+        function loadQuiz() {
+            if (currentQuiz >= quizData.length) {
+                quizEl.innerHTML = `<h3>Quiz Complete! ❤️</h3><p style="font-size:1.2rem; margin-top:1rem;">You scored ${score}/${quizData.length}.</p><p style="font-size:1.2rem; margin-top:1rem;color:var(--accent);">But honestly, you always score infinity in my heart.</p>`;
+                return;
+            }
+            const q = quizData[currentQuiz];
+            let optionsHtml = '';
+            q.options.forEach((opt, index) => {
+                optionsHtml += `<button class="quiz-option interactive" onclick="selectQuiz(${index})">${opt}</button>`;
+            });
+            quizEl.innerHTML = `<h4 style="margin-bottom: 2rem; font-size: 1.5rem; line-height: 1.5;">Question ${currentQuiz + 1}: ${q.question}</h4>${optionsHtml}`;
+            
+            // Re-apply hover listeners for new buttons
+            document.querySelectorAll('.quiz-option').forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+            });
+        }
+
+        window.selectQuiz = function(index) {
+            if (index === quizData[currentQuiz].answer) {
+                score++;
+            }
+            currentQuiz++;
+            loadQuiz();
+        };
+        
+        loadQuiz();
+
+        // --- 7. Canvas Particle Engine (Falling Rose Petals Hearts) ---
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height - canvas.height;
+                this.size = Math.random() * 10 + 5;
+                this.speedY = Math.random() * 1.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 1;
+                this.angle = Math.random() * Math.PI * 2;
+                this.spin = (Math.random() - 0.5) * 0.05;
+                this.type = Math.random() > 0.4 ? 'heart' : 'circle';
+                this.color = `rgba(255, ${Math.random()*50+50}, ${Math.random()*100+100}, ${Math.random()*0.4 + 0.2})`;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX + Math.sin(this.angle) * 0.5;
+                this.angle += this.spin;
+
+                if (this.y > canvas.height) {
+                    this.y = -this.size;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                ctx.fillStyle = this.color;
+                
+                if (this.type === 'heart') {
+                    ctx.beginPath();
+                    const d = this.size;
+                    ctx.moveTo(0, d/4);
+                    ctx.quadraticCurveTo(0, 0, d/4, 0);
+                    ctx.quadraticCurveTo(d/2, 0, d/2, d/4);
+                    ctx.quadraticCurveTo(d/2, 0, d*3/4, 0);
+                    ctx.quadraticCurveTo(d, 0, d, d/4);
+                    ctx.quadraticCurveTo(d, d/2, d/2, d);
+                    ctx.quadraticCurveTo(0, d/2, 0, d/4);
+                    ctx.fill();
+                } else {
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = this.color;
+                    ctx.beginPath();
+                    ctx.arc(0, 0, this.size/2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 70; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+        window.vedikaData = {
+  loveReason1: 'I love you infinitely 1',
+  loveReason2: 'I love you infinitely 2',
+  loveReason3: 'I love you infinitely 3',
+  loveReason4: 'I love you infinitely 4',
+  loveReason5: 'I love you infinitely 5',
+  loveReason6: 'I love you infinitely 6',
+  loveReason7: 'I love you infinitely 7',
+  loveReason8: 'I love you infinitely 8',
+  loveReason9: 'I love you infinitely 9',
+  loveReason10: 'I love you infinitely 10',
+  loveReason11: 'I love you infinitely 11',
+  loveReason12: 'I love you infinitely 12',
+  loveReason13: 'I love you infinitely 13',
+  loveReason14: 'I love you infinitely 14',
+  loveReason15: 'I love you infinitely 15',
+  loveReason16: 'I love you infinitely 16',
+  loveReason17: 'I love you infinitely 17',
+  loveReason18: 'I love you infinitely 18',
+  loveReason19: 'I love you infinitely 19',
+  loveReason20: 'I love you infinitely 20',
+  loveReason21: 'I love you infinitely 21',
+  loveReason22: 'I love you infinitely 22',
+  loveReason23: 'I love you infinitely 23',
+  loveReason24: 'I love you infinitely 24',
+  loveReason25: 'I love you infinitely 25',
+  loveReason26: 'I love you infinitely 26',
+  loveReason27: 'I love you infinitely 27',
+  loveReason28: 'I love you infinitely 28',
+  loveReason29: 'I love you infinitely 29',
+  loveReason30: 'I love you infinitely 30',
+  loveReason31: 'I love you infinitely 31',
+  loveReason32: 'I love you infinitely 32',
+  loveReason33: 'I love you infinitely 33',
+  loveReason34: 'I love you infinitely 34',
+  loveReason35: 'I love you infinitely 35',
+  loveReason36: 'I love you infinitely 36',
+  loveReason37: 'I love you infinitely 37',
+  loveReason38: 'I love you infinitely 38',
+  loveReason39: 'I love you infinitely 39',
+  loveReason40: 'I love you infinitely 40',
+  loveReason41: 'I love you infinitely 41',
+  loveReason42: 'I love you infinitely 42',
+  loveReason43: 'I love you infinitely 43',
+  loveReason44: 'I love you infinitely 44',
+  loveReason45: 'I love you infinitely 45',
+  loveReason46: 'I love you infinitely 46',
+  loveReason47: 'I love you infinitely 47',
+  loveReason48: 'I love you infinitely 48',
+  loveReason49: 'I love you infinitely 49',
+  loveReason50: 'I love you infinitely 50',
+  loveReason51: 'I love you infinitely 51',
+  loveReason52: 'I love you infinitely 52',
+  loveReason53: 'I love you infinitely 53',
+  loveReason54: 'I love you infinitely 54',
+  loveReason55: 'I love you infinitely 55',
+  loveReason56: 'I love you infinitely 56',
+  loveReason57: 'I love you infinitely 57',
+  loveReason58: 'I love you infinitely 58',
+  loveReason59: 'I love you infinitely 59',
+  loveReason60: 'I love you infinitely 60',
+  loveReason61: 'I love you infinitely 61',
+  loveReason62: 'I love you infinitely 62',
+  loveReason63: 'I love you infinitely 63',
+  loveReason64: 'I love you infinitely 64',
+  loveReason65: 'I love you infinitely 65',
+  loveReason66: 'I love you infinitely 66',
+  loveReason67: 'I love you infinitely 67',
+  loveReason68: 'I love you infinitely 68',
+  loveReason69: 'I love you infinitely 69',
+  loveReason70: 'I love you infinitely 70',
+  loveReason71: 'I love you infinitely 71',
+  loveReason72: 'I love you infinitely 72',
+  loveReason73: 'I love you infinitely 73',
+  loveReason74: 'I love you infinitely 74',
+  loveReason75: 'I love you infinitely 75',
+  loveReason76: 'I love you infinitely 76',
+  loveReason77: 'I love you infinitely 77',
+  loveReason78: 'I love you infinitely 78',
+  loveReason79: 'I love you infinitely 79',
+  loveReason80: 'I love you infinitely 80',
+  loveReason81: 'I love you infinitely 81',
+  loveReason82: 'I love you infinitely 82',
+  loveReason83: 'I love you infinitely 83',
+  loveReason84: 'I love you infinitely 84',
+  loveReason85: 'I love you infinitely 85',
+  loveReason86: 'I love you infinitely 86',
+  loveReason87: 'I love you infinitely 87',
+  loveReason88: 'I love you infinitely 88',
+  loveReason89: 'I love you infinitely 89',
+  loveReason90: 'I love you infinitely 90',
+  loveReason91: 'I love you infinitely 91',
+  loveReason92: 'I love you infinitely 92',
+  loveReason93: 'I love you infinitely 93',
+  loveReason94: 'I love you infinitely 94',
+  loveReason95: 'I love you infinitely 95',
+  loveReason96: 'I love you infinitely 96',
+  loveReason97: 'I love you infinitely 97',
+  loveReason98: 'I love you infinitely 98',
+  loveReason99: 'I love you infinitely 99',
+  loveReason100: 'I love you infinitely 100',
+  loveReason101: 'I love you infinitely 101',
+  loveReason102: 'I love you infinitely 102',
+  loveReason103: 'I love you infinitely 103',
+  loveReason104: 'I love you infinitely 104',
+  loveReason105: 'I love you infinitely 105',
+  loveReason106: 'I love you infinitely 106',
+  loveReason107: 'I love you infinitely 107',
+  loveReason108: 'I love you infinitely 108',
+  loveReason109: 'I love you infinitely 109',
+  loveReason110: 'I love you infinitely 110',
+  loveReason111: 'I love you infinitely 111',
+  loveReason112: 'I love you infinitely 112',
+  loveReason113: 'I love you infinitely 113',
+  loveReason114: 'I love you infinitely 114',
+  loveReason115: 'I love you infinitely 115',
+  loveReason116: 'I love you infinitely 116',
+  loveReason117: 'I love you infinitely 117',
+  loveReason118: 'I love you infinitely 118',
+  loveReason119: 'I love you infinitely 119',
+  loveReason120: 'I love you infinitely 120',
+  loveReason121: 'I love you infinitely 121',
+  loveReason122: 'I love you infinitely 122',
+  loveReason123: 'I love you infinitely 123',
+  loveReason124: 'I love you infinitely 124',
+  loveReason125: 'I love you infinitely 125',
+  loveReason126: 'I love you infinitely 126',
+  loveReason127: 'I love you infinitely 127',
+  loveReason128: 'I love you infinitely 128',
+  loveReason129: 'I love you infinitely 129',
+  loveReason130: 'I love you infinitely 130',
+  loveReason131: 'I love you infinitely 131',
+  loveReason132: 'I love you infinitely 132',
+  loveReason133: 'I love you infinitely 133',
+  loveReason134: 'I love you infinitely 134',
+  loveReason135: 'I love you infinitely 135',
+  loveReason136: 'I love you infinitely 136',
+  loveReason137: 'I love you infinitely 137',
+  loveReason138: 'I love you infinitely 138',
+  loveReason139: 'I love you infinitely 139',
+  loveReason140: 'I love you infinitely 140',
+  loveReason141: 'I love you infinitely 141',
+  loveReason142: 'I love you infinitely 142',
+  loveReason143: 'I love you infinitely 143',
+  loveReason144: 'I love you infinitely 144',
+  loveReason145: 'I love you infinitely 145',
+  loveReason146: 'I love you infinitely 146',
+  loveReason147: 'I love you infinitely 147',
+  loveReason148: 'I love you infinitely 148',
+  loveReason149: 'I love you infinitely 149',
+  loveReason150: 'I love you infinitely 150',
+  loveReason151: 'I love you infinitely 151',
+  loveReason152: 'I love you infinitely 152',
+  loveReason153: 'I love you infinitely 153',
+  loveReason154: 'I love you infinitely 154',
+  loveReason155: 'I love you infinitely 155',
+  loveReason156: 'I love you infinitely 156',
+  loveReason157: 'I love you infinitely 157',
+  loveReason158: 'I love you infinitely 158',
+  loveReason159: 'I love you infinitely 159',
+  loveReason160: 'I love you infinitely 160',
+  loveReason161: 'I love you infinitely 161',
+  loveReason162: 'I love you infinitely 162',
+  loveReason163: 'I love you infinitely 163',
+  loveReason164: 'I love you infinitely 164',
+  loveReason165: 'I love you infinitely 165',
+  loveReason166: 'I love you infinitely 166',
+  loveReason167: 'I love you infinitely 167',
+  loveReason168: 'I love you infinitely 168',
+  loveReason169: 'I love you infinitely 169',
+  loveReason170: 'I love you infinitely 170',
+  loveReason171: 'I love you infinitely 171',
+  loveReason172: 'I love you infinitely 172',
+  loveReason173: 'I love you infinitely 173',
+  loveReason174: 'I love you infinitely 174',
+  loveReason175: 'I love you infinitely 175',
+  loveReason176: 'I love you infinitely 176',
+  loveReason177: 'I love you infinitely 177',
+  loveReason178: 'I love you infinitely 178',
+  loveReason179: 'I love you infinitely 179',
+  loveReason180: 'I love you infinitely 180',
+  loveReason181: 'I love you infinitely 181',
+  loveReason182: 'I love you infinitely 182',
+  loveReason183: 'I love you infinitely 183',
+  loveReason184: 'I love you infinitely 184',
+  loveReason185: 'I love you infinitely 185',
+  loveReason186: 'I love you infinitely 186',
+  loveReason187: 'I love you infinitely 187',
+  loveReason188: 'I love you infinitely 188',
+  loveReason189: 'I love you infinitely 189',
+  loveReason190: 'I love you infinitely 190',
+  loveReason191: 'I love you infinitely 191',
+  loveReason192: 'I love you infinitely 192',
+  loveReason193: 'I love you infinitely 193',
+  loveReason194: 'I love you infinitely 194',
+  loveReason195: 'I love you infinitely 195',
+  loveReason196: 'I love you infinitely 196',
+  loveReason197: 'I love you infinitely 197',
+  loveReason198: 'I love you infinitely 198',
+  loveReason199: 'I love you infinitely 199',
+  loveReason200: 'I love you infinitely 200',
+  loveReason201: 'I love you infinitely 201',
+  loveReason202: 'I love you infinitely 202',
+  loveReason203: 'I love you infinitely 203',
+  loveReason204: 'I love you infinitely 204',
+  loveReason205: 'I love you infinitely 205',
+  loveReason206: 'I love you infinitely 206',
+  loveReason207: 'I love you infinitely 207',
+  loveReason208: 'I love you infinitely 208',
+  loveReason209: 'I love you infinitely 209',
+  loveReason210: 'I love you infinitely 210',
+  loveReason211: 'I love you infinitely 211',
+  loveReason212: 'I love you infinitely 212',
+  loveReason213: 'I love you infinitely 213',
+  loveReason214: 'I love you infinitely 214',
+  loveReason215: 'I love you infinitely 215',
+  loveReason216: 'I love you infinitely 216',
+  loveReason217: 'I love you infinitely 217',
+  loveReason218: 'I love you infinitely 218',
+  loveReason219: 'I love you infinitely 219',
+  loveReason220: 'I love you infinitely 220',
+  loveReason221: 'I love you infinitely 221',
+  loveReason222: 'I love you infinitely 222',
+  loveReason223: 'I love you infinitely 223',
+  loveReason224: 'I love you infinitely 224',
+  loveReason225: 'I love you infinitely 225',
+  loveReason226: 'I love you infinitely 226',
+  loveReason227: 'I love you infinitely 227',
+  loveReason228: 'I love you infinitely 228',
+  loveReason229: 'I love you infinitely 229',
+  loveReason230: 'I love you infinitely 230',
+  loveReason231: 'I love you infinitely 231',
+  loveReason232: 'I love you infinitely 232',
+  loveReason233: 'I love you infinitely 233',
+  loveReason234: 'I love you infinitely 234',
+  loveReason235: 'I love you infinitely 235',
+  loveReason236: 'I love you infinitely 236',
+  loveReason237: 'I love you infinitely 237',
+  loveReason238: 'I love you infinitely 238',
+  loveReason239: 'I love you infinitely 239',
+  loveReason240: 'I love you infinitely 240',
+  loveReason241: 'I love you infinitely 241',
+  loveReason242: 'I love you infinitely 242',
+  loveReason243: 'I love you infinitely 243',
+  loveReason244: 'I love you infinitely 244',
+  loveReason245: 'I love you infinitely 245',
+  loveReason246: 'I love you infinitely 246',
+  loveReason247: 'I love you infinitely 247',
+  loveReason248: 'I love you infinitely 248',
+  loveReason249: 'I love you infinitely 249',
+  loveReason250: 'I love you infinitely 250',
+  loveReason251: 'I love you infinitely 251',
+  loveReason252: 'I love you infinitely 252',
+  loveReason253: 'I love you infinitely 253',
+  loveReason254: 'I love you infinitely 254',
+  loveReason255: 'I love you infinitely 255',
+  loveReason256: 'I love you infinitely 256',
+  loveReason257: 'I love you infinitely 257',
+  loveReason258: 'I love you infinitely 258',
+  loveReason259: 'I love you infinitely 259',
+  loveReason260: 'I love you infinitely 260',
+  loveReason261: 'I love you infinitely 261',
+  loveReason262: 'I love you infinitely 262',
+  loveReason263: 'I love you infinitely 263',
+  loveReason264: 'I love you infinitely 264',
+  loveReason265: 'I love you infinitely 265',
+  loveReason266: 'I love you infinitely 266',
+  loveReason267: 'I love you infinitely 267',
+  loveReason268: 'I love you infinitely 268',
+  loveReason269: 'I love you infinitely 269',
+  loveReason270: 'I love you infinitely 270',
+  loveReason271: 'I love you infinitely 271',
+  loveReason272: 'I love you infinitely 272',
+  loveReason273: 'I love you infinitely 273',
+  loveReason274: 'I love you infinitely 274',
+  loveReason275: 'I love you infinitely 275',
+  loveReason276: 'I love you infinitely 276',
+  loveReason277: 'I love you infinitely 277',
+  loveReason278: 'I love you infinitely 278',
+  loveReason279: 'I love you infinitely 279',
+  loveReason280: 'I love you infinitely 280',
+  loveReason281: 'I love you infinitely 281',
+  loveReason282: 'I love you infinitely 282',
+  loveReason283: 'I love you infinitely 283',
+  loveReason284: 'I love you infinitely 284',
+  loveReason285: 'I love you infinitely 285',
+  loveReason286: 'I love you infinitely 286',
+  loveReason287: 'I love you infinitely 287',
+  loveReason288: 'I love you infinitely 288',
+  loveReason289: 'I love you infinitely 289',
+  loveReason290: 'I love you infinitely 290',
+  loveReason291: 'I love you infinitely 291',
+  loveReason292: 'I love you infinitely 292',
+  loveReason293: 'I love you infinitely 293',
+  loveReason294: 'I love you infinitely 294',
+  loveReason295: 'I love you infinitely 295',
+  loveReason296: 'I love you infinitely 296',
+  loveReason297: 'I love you infinitely 297',
+  loveReason298: 'I love you infinitely 298',
+  loveReason299: 'I love you infinitely 299',
+  loveReason300: 'I love you infinitely 300',
+  loveReason301: 'I love you infinitely 301',
+  loveReason302: 'I love you infinitely 302',
+  loveReason303: 'I love you infinitely 303',
+  loveReason304: 'I love you infinitely 304',
+  loveReason305: 'I love you infinitely 305',
+  loveReason306: 'I love you infinitely 306',
+  loveReason307: 'I love you infinitely 307',
+  loveReason308: 'I love you infinitely 308',
+  loveReason309: 'I love you infinitely 309',
+  loveReason310: 'I love you infinitely 310',
+  loveReason311: 'I love you infinitely 311',
+  loveReason312: 'I love you infinitely 312',
+  loveReason313: 'I love you infinitely 313',
+  loveReason314: 'I love you infinitely 314',
+  loveReason315: 'I love you infinitely 315',
+  loveReason316: 'I love you infinitely 316',
+  loveReason317: 'I love you infinitely 317',
+  loveReason318: 'I love you infinitely 318',
+  loveReason319: 'I love you infinitely 319',
+  loveReason320: 'I love you infinitely 320',
+  loveReason321: 'I love you infinitely 321',
+  loveReason322: 'I love you infinitely 322',
+  loveReason323: 'I love you infinitely 323',
+  loveReason324: 'I love you infinitely 324',
+  loveReason325: 'I love you infinitely 325',
+  loveReason326: 'I love you infinitely 326',
+  loveReason327: 'I love you infinitely 327',
+  loveReason328: 'I love you infinitely 328',
+  loveReason329: 'I love you infinitely 329',
+  loveReason330: 'I love you infinitely 330',
+  loveReason331: 'I love you infinitely 331',
+  loveReason332: 'I love you infinitely 332',
+  loveReason333: 'I love you infinitely 333',
+  loveReason334: 'I love you infinitely 334',
+  loveReason335: 'I love you infinitely 335',
+  loveReason336: 'I love you infinitely 336',
+  loveReason337: 'I love you infinitely 337',
+  loveReason338: 'I love you infinitely 338',
+  loveReason339: 'I love you infinitely 339',
+  loveReason340: 'I love you infinitely 340',
+  loveReason341: 'I love you infinitely 341',
+  loveReason342: 'I love you infinitely 342',
+  loveReason343: 'I love you infinitely 343',
+  loveReason344: 'I love you infinitely 344',
+  loveReason345: 'I love you infinitely 345',
+  loveReason346: 'I love you infinitely 346',
+  loveReason347: 'I love you infinitely 347',
+  loveReason348: 'I love you infinitely 348',
+  loveReason349: 'I love you infinitely 349',
+  loveReason350: 'I love you infinitely 350',
+  loveReason351: 'I love you infinitely 351',
+  loveReason352: 'I love you infinitely 352',
+  loveReason353: 'I love you infinitely 353',
+  loveReason354: 'I love you infinitely 354',
+  loveReason355: 'I love you infinitely 355',
+  loveReason356: 'I love you infinitely 356',
+  loveReason357: 'I love you infinitely 357',
+  loveReason358: 'I love you infinitely 358',
+  loveReason359: 'I love you infinitely 359',
+  loveReason360: 'I love you infinitely 360',
+  loveReason361: 'I love you infinitely 361',
+  loveReason362: 'I love you infinitely 362',
+  loveReason363: 'I love you infinitely 363',
+  loveReason364: 'I love you infinitely 364',
+  loveReason365: 'I love you infinitely 365',
+  loveReason366: 'I love you infinitely 366',
+  loveReason367: 'I love you infinitely 367',
+  loveReason368: 'I love you infinitely 368',
+  loveReason369: 'I love you infinitely 369',
+  loveReason370: 'I love you infinitely 370',
+  loveReason371: 'I love you infinitely 371',
+  loveReason372: 'I love you infinitely 372',
+  loveReason373: 'I love you infinitely 373',
+  loveReason374: 'I love you infinitely 374',
+  loveReason375: 'I love you infinitely 375',
+  loveReason376: 'I love you infinitely 376',
+  loveReason377: 'I love you infinitely 377',
+  loveReason378: 'I love you infinitely 378',
+  loveReason379: 'I love you infinitely 379',
+  loveReason380: 'I love you infinitely 380',
+  loveReason381: 'I love you infinitely 381',
+  loveReason382: 'I love you infinitely 382',
+  loveReason383: 'I love you infinitely 383',
+  loveReason384: 'I love you infinitely 384',
+  loveReason385: 'I love you infinitely 385',
+  loveReason386: 'I love you infinitely 386',
+  loveReason387: 'I love you infinitely 387',
+  loveReason388: 'I love you infinitely 388',
+  loveReason389: 'I love you infinitely 389',
+  loveReason390: 'I love you infinitely 390',
+  loveReason391: 'I love you infinitely 391',
+  loveReason392: 'I love you infinitely 392',
+  loveReason393: 'I love you infinitely 393',
+  loveReason394: 'I love you infinitely 394',
+  loveReason395: 'I love you infinitely 395',
+  loveReason396: 'I love you infinitely 396',
+  loveReason397: 'I love you infinitely 397',
+  loveReason398: 'I love you infinitely 398',
+  loveReason399: 'I love you infinitely 399',
+  loveReason400: 'I love you infinitely 400',
+  loveReason401: 'I love you infinitely 401',
+  loveReason402: 'I love you infinitely 402',
+  loveReason403: 'I love you infinitely 403',
+  loveReason404: 'I love you infinitely 404',
+  loveReason405: 'I love you infinitely 405',
+  loveReason406: 'I love you infinitely 406',
+  loveReason407: 'I love you infinitely 407',
+  loveReason408: 'I love you infinitely 408',
+  loveReason409: 'I love you infinitely 409',
+  loveReason410: 'I love you infinitely 410',
+  loveReason411: 'I love you infinitely 411',
+  loveReason412: 'I love you infinitely 412',
+  loveReason413: 'I love you infinitely 413',
+  loveReason414: 'I love you infinitely 414',
+  loveReason415: 'I love you infinitely 415',
+  loveReason416: 'I love you infinitely 416',
+  loveReason417: 'I love you infinitely 417',
+  loveReason418: 'I love you infinitely 418',
+  loveReason419: 'I love you infinitely 419',
+  loveReason420: 'I love you infinitely 420',
+  loveReason421: 'I love you infinitely 421',
+  loveReason422: 'I love you infinitely 422',
+  loveReason423: 'I love you infinitely 423',
+  loveReason424: 'I love you infinitely 424',
+  loveReason425: 'I love you infinitely 425',
+  loveReason426: 'I love you infinitely 426',
+  loveReason427: 'I love you infinitely 427',
+  loveReason428: 'I love you infinitely 428',
+  loveReason429: 'I love you infinitely 429',
+  loveReason430: 'I love you infinitely 430',
+  loveReason431: 'I love you infinitely 431',
+  loveReason432: 'I love you infinitely 432',
+  loveReason433: 'I love you infinitely 433',
+  loveReason434: 'I love you infinitely 434',
+  loveReason435: 'I love you infinitely 435',
+  loveReason436: 'I love you infinitely 436',
+  loveReason437: 'I love you infinitely 437',
+  loveReason438: 'I love you infinitely 438',
+  loveReason439: 'I love you infinitely 439',
+  loveReason440: 'I love you infinitely 440',
+  loveReason441: 'I love you infinitely 441',
+  loveReason442: 'I love you infinitely 442',
+  loveReason443: 'I love you infinitely 443',
+  loveReason444: 'I love you infinitely 444',
+  loveReason445: 'I love you infinitely 445',
+  loveReason446: 'I love you infinitely 446',
+  loveReason447: 'I love you infinitely 447',
+  loveReason448: 'I love you infinitely 448',
+  loveReason449: 'I love you infinitely 449',
+  loveReason450: 'I love you infinitely 450',
+  loveReason451: 'I love you infinitely 451',
+  loveReason452: 'I love you infinitely 452',
+  loveReason453: 'I love you infinitely 453',
+  loveReason454: 'I love you infinitely 454',
+  loveReason455: 'I love you infinitely 455',
+  loveReason456: 'I love you infinitely 456',
+  loveReason457: 'I love you infinitely 457',
+  loveReason458: 'I love you infinitely 458',
+  loveReason459: 'I love you infinitely 459',
+  loveReason460: 'I love you infinitely 460',
+  loveReason461: 'I love you infinitely 461',
+  loveReason462: 'I love you infinitely 462',
+  loveReason463: 'I love you infinitely 463',
+  loveReason464: 'I love you infinitely 464',
+  loveReason465: 'I love you infinitely 465',
+  loveReason466: 'I love you infinitely 466',
+  loveReason467: 'I love you infinitely 467',
+  loveReason468: 'I love you infinitely 468',
+  loveReason469: 'I love you infinitely 469',
+  loveReason470: 'I love you infinitely 470',
+  loveReason471: 'I love you infinitely 471',
+  loveReason472: 'I love you infinitely 472',
+  loveReason473: 'I love you infinitely 473',
+  loveReason474: 'I love you infinitely 474',
+  loveReason475: 'I love you infinitely 475',
+  loveReason476: 'I love you infinitely 476',
+  loveReason477: 'I love you infinitely 477',
+  loveReason478: 'I love you infinitely 478',
+  loveReason479: 'I love you infinitely 479',
+  loveReason480: 'I love you infinitely 480',
+  loveReason481: 'I love you infinitely 481',
+  loveReason482: 'I love you infinitely 482',
+  loveReason483: 'I love you infinitely 483',
+  loveReason484: 'I love you infinitely 484',
+  loveReason485: 'I love you infinitely 485',
+  loveReason486: 'I love you infinitely 486',
+  loveReason487: 'I love you infinitely 487',
+  loveReason488: 'I love you infinitely 488',
+  loveReason489: 'I love you infinitely 489',
+  loveReason490: 'I love you infinitely 490',
+  loveReason491: 'I love you infinitely 491',
+  loveReason492: 'I love you infinitely 492',
+  loveReason493: 'I love you infinitely 493',
+  loveReason494: 'I love you infinitely 494',
+  loveReason495: 'I love you infinitely 495',
+  loveReason496: 'I love you infinitely 496',
+  loveReason497: 'I love you infinitely 497',
+  loveReason498: 'I love you infinitely 498',
+  loveReason499: 'I love you infinitely 499',
+  loveReason500: 'I love you infinitely 500',
+};
+
+    </script>
+</body>
+</html>
